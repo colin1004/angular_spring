@@ -11,6 +11,7 @@ export class LoginComponent implements OnInit {
   password = "";
   errorMessage = "Invalid Credentials";
   invalidLogin = false;
+  // Dependency Injection
   constructor(private router: Router) {}
 
   ngOnInit() {}
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
     // console.log(this.username);
     if (this.username === "asdf" && this.password === "123456") {
       // Redirect to Welcome Page
-      this.router.navigate(["welcome"]);
+      this.router.navigate(["welcome", this.username]);
       this.invalidLogin = false;
     } else this.invalidLogin = true;
   }

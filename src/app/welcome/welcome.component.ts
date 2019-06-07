@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 // import { AppComponent } from "../app.component";
 
 @Component({
@@ -8,13 +9,13 @@ import { Component, OnInit } from "@angular/core";
 })
 export class WelcomeComponent implements OnInit {
   message = "some welcome message";
-  constructor() {}
+  name = "";
+  // dependency injection
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
     console.log(this.message);
+    // console.log(this.route.snapshot.params["name"]);
+    this.name = this.route.snapshot.params["name"];
   }
 }
-
-export class Class1 {}
-
-export class Class2 {}
