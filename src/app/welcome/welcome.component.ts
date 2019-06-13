@@ -25,7 +25,7 @@ export class WelcomeComponent implements OnInit {
   }
 
   getWelcomeMessage() {
-    console.log(this.service.executeHelloWorldBeanService());
+    // console.log(this.service.executeHelloWorldBeanService());
     // async
     this.service
       .executeHelloWorldBeanService()
@@ -33,7 +33,19 @@ export class WelcomeComponent implements OnInit {
         response => this.handleSuccessfulResponse(response),
         error => this.handleErrorResponse(error)
       );
-    console.log("last line of get welcome message");
+    // console.log("last line of get welcome message");
+  }
+
+  getWelcomeMessageWithParamter() {
+    // console.log(this.service.executeHelloWorldBeanService());
+    // async
+    this.service
+      .executeHelloWorldServiceWithPathVariable(this.name)
+      .subscribe(
+        response => this.handleSuccessfulResponse(response),
+        error => this.handleErrorResponse(error)
+      );
+    // console.log("last line of get welcome message");
   }
 
   handleSuccessfulResponse(response) {
